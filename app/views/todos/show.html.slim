@@ -1,0 +1,17 @@
+p#notice
+  = notice
+
+p
+  strong User:
+  = @todo.user_id
+
+p
+  strong Task:
+  = @todo.task
+
+p
+  strong Status:
+  = @todo.status
+
+= link_to 'Edit', edit_todo_path(@todo)
+= link_to 'Back', todos_path
