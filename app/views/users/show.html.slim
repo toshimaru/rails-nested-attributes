@@ -9,9 +9,13 @@ p
   strong Email:
   = @user.email
 
+
+strong Todos:
+
 ul
   - @user.todos.each do |todo|
     li = todo.task
+  li = link_to 'Show all Todos', user_todos_path(@user)
 
 p = link_to 'Edit', edit_user_path(@user)
 p = link_to 'Back', users_path
