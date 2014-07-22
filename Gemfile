@@ -40,3 +40,8 @@ gem 'spring',        group: :development
 
 # Use Slim as a template
 gem 'slim'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
