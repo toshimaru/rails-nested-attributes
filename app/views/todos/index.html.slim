@@ -10,7 +10,8 @@ table
   tbody
     - @todos.each do |todo|
       tr
-        td = todo.user_id
+        td
+          | #{todo.user_id}: #{todo.user.name}
         td = todo.task
         td = todo.status
         td = link_to 'Show', [todo.user, todo]

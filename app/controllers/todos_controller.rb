@@ -22,7 +22,7 @@ class TodosController < ApplicationController
 
   # POST /todos
   def create
-    @todo = Todo.new(todo_params)
+    @todo = Todo.new(todo_params.merge(user_id: @user.id))
 
     respond_to do |format|
       if @todo.save

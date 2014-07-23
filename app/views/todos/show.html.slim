@@ -3,7 +3,7 @@ p#notice
 
 p
   strong User:
-  = @todo.user_id
+  | #{@todo.user_id}: #{@todo.user.name}
 
 p
   strong Task:
@@ -13,5 +13,5 @@ p
   strong Status:
   = @todo.status
 
-p = link_to 'Edit', edit_user_todo_path(@todo, @user)
+p = link_to 'Edit', edit_user_todo_path(@user, @todo)
 p = link_to 'Back', user_todos_path
