@@ -15,7 +15,9 @@
     = f.label :email
     = f.text_field :email
   .field
-    = f.fields_for :todos do |todo_f|
-      = todo_f.text_field :task
+    h2 TODOs
+    ul
+      = f.fields_for :todos do |todo_f|
+        li = todo_f.text_field :task
   .act1ions
     = f.submit

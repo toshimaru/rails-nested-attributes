@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new(todos: [ Todo.new ])
+    @user = User.new(todos: Array.new(10, Todo.new))
   end
 
   # GET /users/1/edit
