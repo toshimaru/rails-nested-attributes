@@ -1,0 +1,47 @@
+<h1>New Form User</h1>
+
+<%= form_with(model: @user_form, url: form_users_path, local: true) do |form| %>
+  <% if @user_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_form.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <h2>TODOs</h2>
+
+  <% @user_form.todo_tasks.each do |task| %>
+    <div>
+      <%= form.text_field :todo_tasks, multiple: true, value: task %>
+    </div>
+  <% end %>
+
+  <% if false %>
+    <%= form.fields :todos do |todo_form| %>
+      <% 5.times do |i| %>
+        <%= todo_form.text_field :task, index: i %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', form_users_path %>
