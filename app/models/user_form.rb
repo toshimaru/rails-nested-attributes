@@ -9,15 +9,13 @@ class UserForm
 
   def save
     self.user = User.new(attributes)
-    # todo_tasks.reject(&:blank?).each do |task|
-    todo_tasks.each do |task|
+    todo_tasks.reject(&:blank?).each do |task|
       self.user.todos << Todo.new(task: task)
     end
  
     if self.user.save
       true
     else
-      binding.irb
       self.user.errors.each do |key, value|
         errors.add key, value
       end
