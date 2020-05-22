@@ -9,7 +9,7 @@ class Form::UsersController < ApplicationController
   end
 
   def new
-    @user_form = UserForm.new(name: "test", todo_tasks: Array.new(5))
+    @user_form = UserForm.new(todo_tasks: Array.new(5))
   end
 
   def edit
@@ -19,7 +19,7 @@ class Form::UsersController < ApplicationController
     @user_form = UserForm.new(form_user_params)
 
     respond_to do |format|
-      if @user_form.save
+      if @user_form.valid? && @user_form.save
         format.html { redirect_to form_user_path(@user_form.user), notice: 'User was successfully created.' }
       else
         format.html { render :new }
