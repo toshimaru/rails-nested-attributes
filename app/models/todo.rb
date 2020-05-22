@@ -1,4 +1,5 @@
 class Todo < ActiveRecord::Base
   belongs_to :user
-  validates_presence_of :user
+
+  validates :task, presence: true
 end
