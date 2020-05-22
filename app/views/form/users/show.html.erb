@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+    <%= @user.name %>
+</div>
+
+<div>
+    <%= @user.email %>
+</div>
+
+<ul>
+<% @user.todos.each do |todo| %>
+    <li><%= todo.task %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_form_user_path(@user) %> |
+<%= link_to 'Back', form_users_path %>
